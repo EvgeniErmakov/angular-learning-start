@@ -19,3 +19,21 @@
        [(ngModel)] = "serverName" >
 
 <p>{{ serverCreationStatus }}</p>
+
+<p><---------------------------------------------- BEGINNING HOMEWORK 2 ----------------------------------------------></p>
+
+<input type="text"
+       class="form-control"
+       (input)="onUpdateUsername($event)" >
+
+<input type="text"
+       class="form-control"
+       [(ngModel)] = "username" >
+
+<p> {{ username }} </p>
+
+<button class="btn btn-primary"
+        [disabled] ="username === ''"
+        (click)="setUserName()"> Username Button </button>
+
+<p><---------------------------------------------- FINISH HOMEWORK 2 ----------------------------------------------></p>
