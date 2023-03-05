@@ -7,9 +7,15 @@
         (click)="onCreateServer()"> Add Server</button>  <!--Property Binding-->
 
 <p [innerText]="'allowNewServer = ' + allowNewServer"> </p> <!--String Interpolation-->
+
 <p>serverName = {{ serverName }}</p>
+
 <input type="text"
        class="form-control"
        (input)="onUpdateServerName($event)" >
+
+<input type="text"
+       class="form-control"
+       [(ngModel)] = "serverName" >
 
 <p>{{ serverCreationStatus }}</p>
