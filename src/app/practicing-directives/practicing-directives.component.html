@@ -1,0 +1,8 @@
+<button class="btn btn-primary"
+        (click)="activeButton()"> Display Details </button>
+
+<p *ngIf="showInformation">Any content</p>
+
+<div *ngFor="let time of logList"
+     [ngStyle]="{backgroundColor: getColor()}"
+     [ngClass]="{timeColor: true}">{{ time }}</div>
