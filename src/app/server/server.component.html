@@ -1,1 +1,8 @@
+<p><---------------------------------------------- START 41. Outputting Lists with ngFor ----------------------------------------------></p>
 <p>Your first angular component</p>
+<button class="btn btn-primary"
+        (click)="addServer()"> Add new server! </button>
+
+<div *ngFor="let server of serverList">{{server}}</div>
+
+<p><---------------------------------------------- FINISH 41. Outputting Lists with ngFor ----------------------------------------------></p>
