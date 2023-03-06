@@ -13,11 +13,14 @@ export class ServersComponent implements OnInit {
   serverCreationStatus = 'No server was created';
   serverName = 'test';
   username = '';
+  serverStatus: string = 'offline';
 
   constructor() {
     setTimeout(() => {
       this.allowNewServer = true;
     }, 2000);
+
+    this.serverStatus = Math.random() > 0.5 ? 'online' : 'offline';
   }
 
   onCreateServer() {
@@ -35,6 +38,10 @@ export class ServersComponent implements OnInit {
 
   onUpdateUsername(event: any) {
     this.username = (<HTMLInputElement>event.target).value;
+  }
+
+  getColor() {
+      return this.serverStatus === 'online' ? 'green' : 'red';
   }
 
   ngOnInit() {
