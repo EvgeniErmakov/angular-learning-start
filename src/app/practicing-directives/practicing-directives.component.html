@@ -3,6 +3,6 @@
 
 <p *ngIf="showInformation">Any content</p>
 
-<div *ngFor="let time of logList"
-     [ngStyle]="{backgroundColor: getColor()}"
-     [ngClass]="{timeColor: true}">{{ time }}</div>
+<div *ngFor="let time of logList; let i = index"
+     [ngStyle]="{backgroundColor: i <= 5 ? 'transparent' : 'blue'}"
+     [ngClass]="{timeColor: i > 5}">{{ time }}</div>
