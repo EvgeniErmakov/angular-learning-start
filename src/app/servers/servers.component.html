@@ -45,5 +45,6 @@
 </ng-template>
 
 <p><---------------------------------------------- START 39. Styling Elements Dynamically with ngStyle ----------------------------------------------></p>
-<p [ngStyle]="{backgroundColor: getColor()}">{{ 'Server' }} is {{ serverStatus }}</p>
+<p [ngStyle]="{backgroundColor: getColor()}"
+   [ngClass]="{online: serverStatus === 'online'}">{{ 'Server' }} is {{ serverStatus }}</p>
 <p><---------------------------------------------- END 39. Styling Elements Dynamically with ngStyle ----------------------------------------------></p>
