@@ -38,4 +38,8 @@
 
 <p><---------------------------------------------- FINISH HOMEWORK 2 ----------------------------------------------></p>
 
-<p *ngIf="serverCreated"> server has been created {{ serverName }}</p>
+<p *ngIf="serverCreated; else noServer"> server has been created {{ serverName }}</p>
+
+<ng-template #noServer>
+  <p>No server was created</p>
+</ng-template>
