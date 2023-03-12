@@ -2,6 +2,7 @@
   class="panel panel-default">
   <div class="panel-heading">{{ 'odd' }}</div>
   <div class="panel-body">
-    <p><em>Odd = {{ element }}</em></p>
+    <p><em   [ngClass] = "{odd: element % 2 !== 0}"
+             [ngStyle] = "{backgroundColor: element % 2 !==0 ? 'yellow' : 'transparent'}">Odd = {{ element }}</em></p>
   </div>
 </div>
