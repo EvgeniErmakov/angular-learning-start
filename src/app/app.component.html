@@ -15,4 +15,24 @@
       </app-server-element>
     </div>
   </div>
+
+  <hr>
+
+  <app-game-control (create)="addEvent($event)"></app-game-control>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <app-even *ngFor="let eventList of eventList"
+                          [even]="eventList">
+      </app-even>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <app-odd *ngFor="let oddList of oddList"
+                [odd]="oddList">
+      </app-odd>
+    </div>
+  </div>
 </div>
