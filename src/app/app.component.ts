@@ -9,7 +9,7 @@ export class AppComponent {
   serverElement = [{type: 'server', name: 'Testserver', content: 'Just a test!'}];
   eventList = [0];
   oddList = [0];
-
+  switchValue = 10;
 
   onServerAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElement.push({
