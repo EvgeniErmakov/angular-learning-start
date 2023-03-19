@@ -11,6 +11,9 @@ import {AccountService} from "../account.service";
 export class NewAccountComponent {
 
   constructor(private loggingService: LoggingSevice, private accountService: AccountService) {
+    // с помощью subscribe мы подписываемся на прослушку приходящих событий, метод находится в сервисе
+    this.accountService.statusUpdated.subscribe((status:string) => alert('New Status: ' + status)
+    );
   }
 
   onCreateAccount(accountName: string, accountStatus: string) {
