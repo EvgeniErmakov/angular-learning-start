@@ -9,7 +9,7 @@ import {interval, Observable, Subscription} from "rxjs";
 export class HomeComponent implements OnInit, OnDestroy {
 
   private firstObsSubscription: Subscription;
-
+  private firstObsSubscription2: Subscription;
   constructor() { }
 
   ngOnInit() {
@@ -28,9 +28,13 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.firstObsSubscription = customIntervalObservable.subscribe(data => {
       console.log(data);
     });
+    this.firstObsSubscription2 = customIntervalObservable.subscribe(data => {
+      console.log("The second one = " + data);
+    });
   }
 
   ngOnDestroy() {
     this.firstObsSubscription.unsubscribe();
+    this.firstObsSubscription2.unsubscribe()
   }
 }
