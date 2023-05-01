@@ -1,25 +1,28 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {UserService} from "./user.service";
-import {Subscription} from "rxjs";
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
-  private subscription: Subscription;
-  userActivated = false;
+export class AppComponent implements OnInit {
+  loadedPosts = [];
 
-  constructor(private userService: UserService) {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    let subscription = this.userService.activatedEmitter.subscribe(didActivate => {
-      this.userActivated = didActivate;
-    });
+  ngOnInit() {}
+
+  onCreatePost(postData: { title: string; content: string }) {
+    // Send Http request
+    console.log(postData);
   }
 
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+  onFetchPosts() {
+    // Send Http request
+  }
+
+  onClearPosts() {
+    // Send Http request
   }
 }
