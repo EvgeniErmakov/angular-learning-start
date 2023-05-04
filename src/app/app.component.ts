@@ -32,7 +32,10 @@ export class AppComponent implements OnInit {
   }
 
   onClearPosts() {
-    // Send Http request
+    this.postsService.clearPost()
+      .subscribe(() => {
+        this.loadedPosts = [];
+      })
   }
 
 //https://ng-complete-guide-63cf7-default-rtdb.firebaseio.com/
