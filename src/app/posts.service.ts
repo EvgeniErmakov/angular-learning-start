@@ -40,7 +40,9 @@ export class PostsService {
           // params: new HttpParams().set('key!','value!')
           params: new HttpParams()
             .set('firstOne', 'value1')
-            .set('secondOne', 'value2')
+            .set('secondOne', 'value2'),
+          //Вот так задаём формат ответа:
+          responseType: 'json'
         })
       .pipe(map(responseData => {
           const postArray: Post[] = [];
