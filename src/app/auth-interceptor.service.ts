@@ -2,7 +2,7 @@ import {HttpEventType, HttpHandler, HttpInterceptor, HttpRequest} from "@angular
 import {tap} from "rxjs";
 
 export class AuthInterceptorService implements HttpInterceptor {
-
+/*
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     console.log("Перед тем как запросик ушел, вызвансля перехватчик-Interceptor!")
     // принимаемый запрос является имьютабельным (неизменяемым), мы не может в него что-либо добавить, но можем копировать
@@ -18,5 +18,14 @@ export class AuthInterceptorService implements HttpInterceptor {
         console.log('body, request was intercepted on receipt -> ' + event.body);
       }
     }));
+  }
+ */
+
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    console.log('Первый перехватчик 1')
+    const modifiedRequest = req.clone({
+      headers: req.headers.append('NewHeader', 'Header was added by Interceptors')
+    })
+    return next.handle(modifiedRequest);
   }
 }
