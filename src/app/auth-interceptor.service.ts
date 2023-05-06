@@ -1,4 +1,5 @@
-import {HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
+import {HttpEventType, HttpHandler, HttpInterceptor, HttpRequest} from "@angular/common/http";
+import {tap} from "rxjs";
 
 export class AuthInterceptorService implements HttpInterceptor {
 
@@ -8,8 +9,14 @@ export class AuthInterceptorService implements HttpInterceptor {
     // и добавить что-то своё в скопированный запрос. Далее, мы можем в next.handle(out new request) передать и отправить запрос!
     // Пример:
     const modifiedRequest = req.clone({
-      headers: req.headers.append('NewHeader','Header was added by Interceptors')
+      headers: req.headers.append('NewHeader', 'Header was added by Interceptors')
     })
-    return next.handle(modifiedRequest);
+    return next.handle(modifiedRequest).pipe(tap(event => {
+      console.log(event);
+      if (event.type === HttpEventType.Response) {
+        console.log('Response arrived');
+        console.log('body, request was intercepted on receipt -> ' + event.body);
+      }
+    }));
   }
 }
