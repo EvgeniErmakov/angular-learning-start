@@ -16,12 +16,14 @@
             <label for="email">Mail</label>
             <input type="email" id="email" class="form-control"
             ngModel
-            name="email"
+            name="email2"
             required
-            email>
+            email
+            #email=ngModel>
           </div>
         </div>
-        <p *ngIf="!f.valid"> Please enter a valid value!</p>
+        <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+        <p *ngIf="!f.valid"> Please enter a valid values!</p>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
           <select id="secret" class="form-control"
