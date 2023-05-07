@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   filteredStatus = '';
+  appStatus = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('stable');
+    }, 2000);
+  });
 
   servers = [
     {
@@ -34,7 +39,8 @@ export class AppComponent {
       started: new Date(15, 1, 2017)
     }
   ];
-  getStatusClasses(server: {instanceType: string, name: string, status: string, started: Date}) {
+
+  getStatusClasses(server: { instanceType: string, name: string, status: string, started: Date }) {
     return {
       'list-group-item-success': server.status === 'stable',
       'list-group-item-warning': server.status === 'offline',
@@ -46,7 +52,7 @@ export class AppComponent {
     this.servers.push({
       instanceType: 'small',
       name: 'name',
-      started: new Date(12,7,1984),
+      started: new Date(12, 7, 1984),
       status: 'stable'
     })
   }
