@@ -21,6 +21,7 @@
             email>
           </div>
         </div>
+        <p *ngIf="!f.valid"> Please enter a valid value!</p>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
           <select id="secret" class="form-control"
@@ -29,7 +30,10 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <button
+          class="btn btn-primary"
+          type="submit"
+        [disabled]="!f.valid">Submit</button>
       </form>
     </div>
   </div>
