@@ -14,12 +14,32 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+
+    //По нажатию на кнопку во все поля зададуться следующие значения в закомментированном коде ниже. Минус в том, что мы переопределили сразу все поля.
+    /*
+    this.signUpForm.setValue({
+      userData: {
+        username: suggestedName,
+        email2: 'random'
+      },
+      secret: 'pet',
+      questionAnswer: '',
+      gender: 'male'
+    })
+     */
+
+    this.signUpForm.form.patchValue({
+      userData: {
+        username: 'Random username'
+      }
+    })
   }
-/*
-  onSubmit(form: NgForm) {
-  console.log(form)
-  }
- */
+
+  /*
+    onSubmit(form: NgForm) {
+    console.log(form)
+    }
+   */
 
   onSubmit() {
     console.log(this.signUpForm)
