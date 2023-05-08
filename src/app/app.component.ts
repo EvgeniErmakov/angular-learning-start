@@ -29,10 +29,28 @@ export class AppComponent implements OnInit {
     this.signUpForm.statusChanges.subscribe(
       (status) => console.log('status ' + status)
     );
+
+    // Чтобы установить во ВСЕХ полях формы новые значения (если наже не прописал, будет = null)
+    this.signUpForm.setValue( {
+      'userData': {
+        'username': 'Evgeni',
+        'email': 'kro@googlers.com'
+      },
+      'gender': 'male',
+      'hobbies':[]
+    });
+
+    // Чтобы установить установить в ОПРЕДЕЛЕННЫХ полях формы новые значения (если ниже не указал, будет = старое значение)
+    this.signUpForm.patchValue( {
+      'userData': {
+        'username': 'EvgeniPatch'
+      }
+    });
   }
 
   onSubmit() {
     console.log(this.signUpForm);
+    this.signUpForm.reset();
   }
 
   getControls() {
