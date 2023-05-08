@@ -14,7 +14,8 @@
           <button
             class="btn btn-default"
             type="button"
-          (click)="suggestUserName()">Suggest an Username</button>
+            (click)="suggestUserName()">Suggest an Username
+          </button>
           <div class="form-group">
             <label for="email">Mail</label>
             <input type="email" id="email" class="form-control"
@@ -67,6 +68,17 @@
           [disabled]="!f.valid">Submit
         </button>
       </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Your data</h3>
+      <p>Username: {{user.username}}</p>
+      <p>Mail:{{user.email}}</p>
+      <p>Secret Question:{{user.secretQuestion}}</p>
+      <p>Answer:{{user.answer}}</p>
+      <p>Gender:{{user.gender}}</p>
     </div>
   </div>
 </div>
