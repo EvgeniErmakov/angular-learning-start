@@ -20,6 +20,18 @@ export class AppComponent {
   }
   submitted = false;
 
+  @ViewChild('hwForm') hwForm: NgForm;
+
+  hw= {
+    emailHW: '',
+    subscriptionHW:'',
+    passwordHW: '',
+  }
+
+  //For HW
+  subscription = ['Basic', 'Advanced', 'Pro'];
+  defaultSubscription = 'Advanced';
+
 
   suggestUserName() {
     const suggestedName = 'Superuser';
@@ -60,6 +72,18 @@ export class AppComponent {
 
     this.submitted = true;
 
+    this.signUpForm.reset(); //Позволяет ресетнуть все значения при нажатии кнопки.
+  }
+
+  onSubmitHW() {
+    console.log(this.hwForm);
+    this.hw.subscriptionHW = this.hwForm.value.subscriptionHW;
+    this.hw.passwordHW = this.hwForm.value.passwordHW;
+    this.hw.emailHW = this.hwForm.value.emailHW;
+
+    console.log(this.hw.emailHW);
+    console.log(this.hw.subscriptionHW);
+    console.log(this.hw.passwordHW);
     this.signUpForm.reset(); //Позволяет ресетнуть все значения при нажатии кнопки.
   }
 }

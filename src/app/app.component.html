@@ -81,4 +81,64 @@
       <p>Gender:{{user.gender}}</p>
     </div>
   </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+
+        <form (ngSubmit)="onSubmitHW()" #hwForm="ngForm">
+          <div class="form-group">
+            <label for="emailHW">Mail</label>
+            <input type="email" id="emailHW" class="form-control"
+                   ngModel
+                   name="emailHW"
+                   required
+                   email
+                   #emailHW=ngModel>
+          </div>
+          <span class="help-block" *ngIf="!emailHW.valid && emailHW.touched">Please enter a valid email!</span>
+
+          <div class="form-group">
+            <label for="subscriptionHW">Subscription</label>
+            <select
+              id="subscriptionHW"
+              class="form-control"
+              [ngModel]="defaultSubscription"
+              name="subscriptionHW">
+              <option *ngFor="let subscription of subscription" [value]="subscription">
+                {{subscription}}
+              </option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="passwordHW">Password</label>
+            <input type="password" id="passwordHW" class="form-control"
+                   ngModel
+                   name="passwordHW"
+                   required
+                   #password=ngModel>
+          </div>
+          <span class="help-block" *ngIf="!password.valid && password.touched">Please enter a valid password!</span>
+
+          <button
+            class="btn btn-primary"
+            type="submit"
+            [disabled]="!hwForm.valid">SubmitHW
+          </button>
+
+          <p *ngIf="!hwForm.valid && hwForm.touched">ТЫ МЕНЯ ТРОНУЛА, ТРОНУЛА! НЕВАЛИДНЫЕ ЗНАЧЕНИЯ!</p>
+
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Your data HW</h3>
+        <p>Subscription: {{hw.subscriptionHW}}</p>
+        <p>Password:{{hw.passwordHW}}</p>
+        <p>Mail:{{hw.emailHW}}</p>
+      </div>
+    </div>
+  </div>
 </div>
