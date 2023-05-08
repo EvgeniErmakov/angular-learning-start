@@ -21,6 +21,14 @@ export class AppComponent implements OnInit {
       "gender": new FormControl('male'),
       "hobbies": new FormArray([])
     });
+
+    this.signUpForm.valueChanges.subscribe(
+      (value) => console.log('value ' + value)
+    );
+
+    this.signUpForm.statusChanges.subscribe(
+      (status) => console.log('status ' + status)
+    );
   }
 
   onSubmit() {
@@ -50,7 +58,7 @@ export class AppComponent implements OnInit {
         if (control.value === 'test@test.com') {
           resolve({'nameIsForbidden': true})
         } else {
-          return null;
+          resolve(null);
         }
       }, 1500)
     })
